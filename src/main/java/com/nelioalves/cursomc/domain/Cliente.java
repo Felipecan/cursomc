@@ -39,11 +39,15 @@ public class Cliente implements Serializable {
     @CollectionTable(name="TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @OneToMany(mappedBy="cliente")
+    List<Pedido> pedidos = new ArrayList<>();
+
     public Cliente() {
 
     }
 
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+        super();
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -157,6 +161,20 @@ public class Cliente implements Serializable {
         return result;
     }
 
+     /**
+     * @return the pedidos
+     */
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    /**
+     * @param pedidos the pedidos to set
+     */
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -174,5 +192,7 @@ public class Cliente implements Serializable {
         return true;
     }
 
+  
+   
     
 }
