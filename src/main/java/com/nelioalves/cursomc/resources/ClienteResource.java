@@ -3,6 +3,7 @@ package com.nelioalves.cursomc.resources;
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.dto.ClienteDTO;
+import com.nelioalves.cursomc.dto.ClienteNewDTO;
 import com.nelioalves.cursomc.services.ClienteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +33,14 @@ public class ClienteResource {
         return ResponseEntity.ok().body(obj);
     }
 
-//    @PostMapping
-//    public ResponseEntity<Void> insert(@Valid @RequestBody ClienteDTO objDto) {
-//        Cliente obj = service.fromDTO(objDto);
-//        obj = service.insert(obj);
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-//                .path("/{id}").buildAndExpand(obj.getId()).toUri();
-//        return ResponseEntity.created(uri).build();
-//    }
+    @PostMapping
+    public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto) {
+        Cliente obj = service.fromDTO(objDto);
+        obj = service.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
 
     @PutMapping(value="/{id}")
     public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id) {
