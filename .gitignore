@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 HELP.md
 /target/
+=======
+target/
+>>>>>>> rezet
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -18,6 +22,7 @@ HELP.md
 *.ipr
 
 ### NetBeans ###
+<<<<<<< HEAD
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -30,3 +35,11 @@ HELP.md
 
 #### Não sei o que é isso ###
 .attach_*
+=======
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+>>>>>>> rezet
